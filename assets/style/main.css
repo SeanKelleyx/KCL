@@ -1,3 +1,28 @@
+.abt-button{
+    vertical-align: baseline;
+}
+
+.about-us{
+    padding:3%;
+    font-size: 1.2em;
+}
+
+.about-intro{
+    text-align: center;
+}
+
+.about-block{
+    padding: 1.5%;
+}
+
+.tagline{
+    text-align: center;
+}
+
+.ATBB{
+    font-size: 1.1em;
+}
+
 .mbr-navbar__brand-img{
 	height: auto !important;
 	padding-right: 2em;
