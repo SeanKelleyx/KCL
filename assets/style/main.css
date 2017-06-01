@@ -10,3 +10,7 @@
 .mbr-arrow {
     bottom: 15px;
 }
+
+textarea.form-control {
+	resize: none;
+}
