@@ -39,3 +39,7 @@
 textarea.form-control {
 	resize: none;
 }
+
+.bio_image{
+	border-radius: 50%;	
+}
