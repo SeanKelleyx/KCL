@@ -2,3 +2,11 @@
 	height: auto !important;
 	padding-right: 2em;
 }
+
+.mbr-hero__text {
+	margin: 20px 0 1px 0;
+}
+
+.mbr-arrow {
+    bottom: 15px;
+}
