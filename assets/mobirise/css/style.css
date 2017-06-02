@@ -1207,7 +1207,7 @@ html {
 .mbr-section--no-padding {
   padding: 0;
 }
-.mbr-section--relative {
+.mbr-section-relative {
   position: relative;
 }
 .mbr-section--fixed-size {
