@@ -7,7 +7,10 @@ $('form').on('submit', function(e){
   	message: $("#message")[0].value 
   })
   .done(function( data ) {
-    alert( "Data Loaded: " + data );
+  	console.log(data);
+    var x = $("#snackbar")[0];
+    x.innerHTML = "Your Message Has Been Sent";
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   });
-  console.log('submitted');
 });
