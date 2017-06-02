@@ -1210,7 +1210,7 @@ html {
 .mbr-section-relative {
   position: relative;
 }
-.mbr-section--fixed-size {
+.mbr-section-fixed-size {
   overflow: hidden;
 }
 .mbr-section--full-height {
