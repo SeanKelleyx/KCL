@@ -1652,7 +1652,7 @@ html {
   padding-left: 102px;
   position: relative;
 }
-.mbr-reviews__author--short {
+.mbr-reviews__author-short {
   margin-top: 27px;
   padding-left: 32px;
 }
@@ -1679,7 +1679,7 @@ html {
   .mbr-reviews__author {
     padding-bottom: 32px;
   }
-  .mbr-reviews__author--short {
+  .mbr-reviews__author-short {
     padding-bottom: 1px;
   }
 }
