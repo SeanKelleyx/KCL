@@ -1239,7 +1239,7 @@ html {
   position: relative;
   z-index: 3;
 }
-.mbr-section__container--std-padding {
+.mbr-section__container-std-padding {
   padding: 93px 0;
 }
 .mbr-section__container--sm-padding {
