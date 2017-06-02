@@ -25,6 +25,7 @@
 
 .mbr-navbar__brand-img{
 	height: auto !important;
+    width: 100%;
 	padding-right: 2em;
 }
 
@@ -42,6 +43,14 @@ textarea.form-control {
 
 .bio_image{
 	border-radius: 50%;	
+}
+
+.about_us_image{
+    width: 100%;
+}
+
+.footer_heading{
+    display: none;
 }
 
 #snackbar {
