@@ -51,7 +51,7 @@ textarea.form-control {
     background-color: #faaf40;
     color: #fff;
     text-align: center;
-    border-radius: 2px;
+    border: 2px solid white;
     padding: 16px;
     position: fixed;
     z-index: 100;
