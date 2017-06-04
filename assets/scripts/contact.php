@@ -16,7 +16,7 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])){
 
 	$body = "<br><hr><br>Name: $name <br>Email: $email <br>Phone: $phone <br>Message: $message <br>IP: $ip";
 		
-	$headers = "From: $KCLemail\r\n";
+	$headers = "From: noreply@kelleycodelabs.com\r\n";
 	$headers .= "Content-type: text/html\r\n";
 	
 	$success = mail($KCLemail, "!!Message from the KCL website!!", $body, $headers);
