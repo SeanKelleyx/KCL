@@ -12,6 +12,7 @@ $('form').on('submit', function(e){
     var message = "Error, please try again.";
     if(response.success){
       message = "Your Message Has Been Sent";
+      $('form')[0].reset();
     }
     x.innerHTML = message;
     x.className = "show";
