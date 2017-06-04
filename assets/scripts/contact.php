@@ -6,11 +6,15 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])){
 	$email = $_POST['email'];
 	$message = $_POST['message'];
 	$phone = 'No phone number supplied.';
+	$ip = 'none';
+	if(isset($_SERVER['REMOTE_ADDR'])){
+		$ip = $_SERVER['REMOTE_ADDR'];
+	}
 	if(isset($_POST['phone'])){
 		$phone = $_POST['phone'];
 	}
 
-	$body = "<br><hr><br>Name: $name <br>Email: $email <br>	Phone: $phone <br>	Message: $message <br>";
+	$body = "<br><hr><br>Name: $name <br>Email: $email <br>Phone: $phone <br>Message: $message <br>IP: $ip";
 		
 	$headers = "From: $KCLemail\r\n";
 	$headers .= "Content-type: text/html\r\n";
