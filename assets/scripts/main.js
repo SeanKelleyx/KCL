@@ -6,10 +6,14 @@ $('form').on('submit', function(e){
   	phone: $("#phone")[0].value,
   	message: $("#message")[0].value 
   })
-  .done(function( data ) {
-  	console.log(data);
+  .done(function(data) {
+    var response = JSON.parse(data);
     var x = $("#snackbar")[0];
-    x.innerHTML = "Your Message Has Been Sent";
+    var message = "Error, please try again.";
+    if(response.success){
+      message = "Your Message Has Been Sent";
+    }
+    x.innerHTML = message;
     x.className = "show";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   });
