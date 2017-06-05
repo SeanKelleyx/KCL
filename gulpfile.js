@@ -6,7 +6,8 @@ var gulp = require('gulp'),
 	nano = require('gulp-cssnano'),
 	rename = require('gulp-rename'),
 	size = require('gulp-size'),
-	del = require('del');
+	del = require('del'),
+	maps = require('gulp-sourcemaps');
 
 gulp.task('concatScripts', function(){
 	return gulp.src(["assets/jquery/jquery.min.js",
@@ -20,7 +21,9 @@ gulp.task('concatScripts', function(){
 		"assets/mobirise/js/script.js",
 		"assets/mobirise-gallery/script.js",
 		"assets/scripts/main.js"])
+	.pipe(maps.init())
     .pipe(concat('app.js'))
+    .pipe(maps.write('./'))
     .pipe(gulp.dest("js"));
 });
 
