@@ -51,3 +51,12 @@ gulp.task("concatCSS", function(){
     .pipe(maps.write('./'))
     .pipe(gulp.dest("css"));
 });
+
+gulp.task("minifyCSS", ['concatCSS'], function(){
+	return gulp.src("css/styles.css")
+	.pipe(size({title:'css/styles.css'}))
+	.pipe(nano())
+	.pipe(rename("styles.min.css"))
+	.pipe(gulp.dest('css'))
+	.pipe(size({title:'css/styles.min.css'}));
+});
