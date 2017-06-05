@@ -1,0 +1,11 @@
+{
+  "name": "kcl",
+  "version": "1.0.0",
+  "description": "kelley code labs website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "KelleyCodeLabs LLC",
+  "license": "ISC"
+}
