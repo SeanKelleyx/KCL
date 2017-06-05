@@ -11,3 +11,6 @@ When pushing to server only need to include the following images:
 * sean_mike.png
 * seanBio.jpg
 * webDevelopment.svg
+
+
+Optimize branch, to help with minifying and improving page speed.
