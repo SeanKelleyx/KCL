@@ -35,3 +35,19 @@ gulp.task("minifyScripts", ['concatScripts'], function(){
 	.pipe(gulp.dest('js'))
 	.pipe(size({title:'js/app.min.js'}));
 });
+
+gulp.task("concatCSS", function(){
+	return gulp.src(["https://fonts.googleapis.com/css?family=Roboto:700,400&amp;subset=cyrillic,latin,greek,vietnamese",
+		"assets/bootstrap/css/bootstrap.min.css",
+		"assets/animate.css/animate.min.css",
+		"assets/socicon/css/socicon.min.css",
+		"assets/mobirise/css/style.css",
+		"assets/mobirise-slider/style.css",
+		"assets/mobirise-gallery/style.css",
+		"assets/mobirise/css/mbr-additional.css",
+		"assets/style/main.css"])
+	.pipe(maps.init())
+    .pipe(concat('styles.css'))
+    .pipe(maps.write('./'))
+    .pipe(gulp.dest("css"));
+});
