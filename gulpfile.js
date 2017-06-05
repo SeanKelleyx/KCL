@@ -23,3 +23,12 @@ gulp.task('concatScripts', function(){
     .pipe(concat('app.js'))
     .pipe(gulp.dest("js"));
 });
+
+gulp.task("minifyScripts", ['concatScripts'], function(){
+	return gulp.src("js/app.js")
+	.pipe(size({title:'js/app.js'}))
+	.pipe(uglify())
+	.pipe(rename("app.min.js"))
+	.pipe(gulp.dest('js'))
+	.pipe(size({title:'js/app.min.js'}));
+});
