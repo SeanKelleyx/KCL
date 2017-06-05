@@ -60,3 +60,10 @@ gulp.task("minifyCSS", ['concatCSS'], function(){
 	.pipe(gulp.dest('css'))
 	.pipe(size({title:'css/styles.min.css'}));
 });
+
+gulp.task('watchFiles', function(){
+	gulp.watch('assets/style/main.css',['minifyCSS']);
+	gulp.watch('assets/scripts/main.js', ['minifyScripts']);
+});
+
+gulp.task("serve", ['watchFiles']);
