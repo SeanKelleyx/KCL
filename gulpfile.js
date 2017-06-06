@@ -8,7 +8,8 @@ var gulp = require('gulp'),
 	size = require('gulp-size'),
 	del = require('del'),
 	maps = require('gulp-sourcemaps'),
-	htmlmin = require('gulp-htmlmin');
+	htmlmin = require('gulp-htmlmin'),
+	removeHtmlComments = require('gulp-remove-html-comments');
 
 gulp.task('concatScripts', function(){
 	return gulp.src(["assets/jquery/jquery.min.js",
@@ -65,7 +66,8 @@ gulp.task("minifyCSS", ['concatCSS'], function(){
 gulp.task("minifyHTML", function(){
 	return gulp.src("index.html")
 	.pipe(size({title:'dist/index.html'}))
-	.pipe(htmlmin({collapseWhitespace: true}))
+	.pipe(removeHtmlComments())
+	.pipe(htmlmin({collapseWhitespace: true, processConditionalComments: true, collapseInlineTagWhitespace: true}))
   .pipe(gulp.dest('dist'))
   .pipe(size({title:'dist/index.html'}));
 });
