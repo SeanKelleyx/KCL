@@ -7,7 +7,8 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	size = require('gulp-size'),
 	del = require('del'),
-	maps = require('gulp-sourcemaps');
+	maps = require('gulp-sourcemaps'),
+	htmlmin = require('gulp-htmlmin');
 
 gulp.task('concatScripts', function(){
 	return gulp.src(["assets/jquery/jquery.min.js",
@@ -61,9 +62,63 @@ gulp.task("minifyCSS", ['concatCSS'], function(){
 	.pipe(size({title:'css/styles.min.css'}));
 });
 
+gulp.task("minifyHTML", function(){
+	return gulp.src("index.html")
+	.pipe(size({title:'dist/index.html'}))
+	.pipe(htmlmin({collapseWhitespace: true}))
+  .pipe(gulp.dest('dist'))
+  .pipe(size({title:'dist/index.html'}));
+});
+
 gulp.task('watchFiles', function(){
 	gulp.watch('assets/style/main.css',['minifyCSS']);
 	gulp.watch('assets/scripts/main.js', ['minifyScripts']);
 });
 
 gulp.task("serve", ['watchFiles']);
+
+gulp.task('clean', function(){
+	del(['dist', 'css/styles*.css*', 'js/app*.js*']);
+});
+
+gulp.task("copy", ['minifyScripts', 'minifyCSS', 'minifyHTML', 'copyStyle', 'copyScripts', 'copyImages', 'copyFonts', 'copyOther'], function(){
+	return true;
+});
+
+gulp.task("copyStyle", function(){
+	return gulp.src(["css/styles.min.css"], {base: "./"})
+	.pipe(gulp.dest('dist'));
+});
+
+gulp.task("copyScripts", function(){
+	return gulp.src(["js/app.min.js", "assets/scripts/contact.php"], {base: "./"})
+	.pipe(gulp.dest('dist'));
+});
+
+gulp.task("copyImages", function(){
+	return gulp.src(["assets/images/KCLlogodark.png", 
+		"assets/images/appDevelopment.svg", 
+		"assets/images/computer.jpeg",
+		"assets/images/customSoftware.svg", 
+		"assets/images/discover-mobile-350x350-16.png", 
+		"assets/images/marketingTools.svg",
+		"assets/images/mikeBio.png",
+		"assets/images/seanBio.jpg",
+		"assets/images/sean_mike.png",
+		"assets/images/webDevelopment.svg"], {base: "./"})
+	.pipe(gulp.dest('dist'));
+});
+
+gulp.task("copyFonts", function(){
+	return gulp.src(["assets/bootstrap/fonts/**"], {base: "assets/bootstrap"})
+	.pipe(gulp.dest('dist'));
+});
+
+gulp.task("copyOther", function(){
+	return gulp.src(["robots.txt", ".htaccess"], {base: "./"})
+	.pipe(gulp.dest('dist'));
+});
+
+gulp.task("build", ['copy'], function(){
+	return true;
+});
