@@ -13,4 +13,4 @@ When pushing to server only need to include the following images:
 * webDevelopment.svg
 
 
-Optimize branch, to help with minifying and improving page speed.
+To build page for production `npm install` then `gulp build`, the production directory is the `dist` directory
